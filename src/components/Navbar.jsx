@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "./navbar.css";
-import logo from "/logo.png";
+// import logo from "/logo.png";
 
 function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +29,7 @@ function Navbar() {
 
                 {/* LOGO */}
                 <Link to="/" className="nav-logo">
-                    <img src={logo} alt="logo" className="logo-img" />
+                    <img src="/logo.png" alt="logo" className="logo-img" />
                 </Link>
 
                 {/* DESKTOP LINKS */}

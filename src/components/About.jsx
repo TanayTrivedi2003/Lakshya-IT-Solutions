@@ -1,5 +1,5 @@
 import "./about.css";
-import aboutImg from "/about.png"; // apni image daal
+// import aboutImg from "/about.png"; // apni image daal
 
 function About() {
     return (
@@ -9,7 +9,7 @@ function About() {
                 {/* LEFT IMAGE */}
                 <div className="about-left">
                     <div className="about-img-box">
-                        <img src={aboutImg} alt="about" />
+                        <img src="/about.png" alt="about" />
                     </div>
                 </div>
 

@@ -1,5 +1,5 @@
 import "./hero.css";
-import heroImg from "/heroimg.png"; // apni image yahan daal
+// import heroImg from "/heroimg.png"; // apni image yahan daal
 
 function Hero() {
     return (
@@ -70,7 +70,7 @@ function Hero() {
                         <div className="image-box">
                             <div className="image-gradient"></div>
 
-                            <img src={heroImg} alt="course" />
+                            <img src="/heroimg.png" alt="course" />
 
                             {/* PROGRESS BARS */}
                             <div className="progress-bars">
