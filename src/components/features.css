@@ -45,6 +45,7 @@
 
 /* CARD */
 .feature-card {
+  position: relative; /* 🔥 important */
   background: #f8fbfa;
   padding: 28px;
   border-radius: 20px;
@@ -55,6 +56,7 @@
     0 2px 6px rgba(14, 220, 161, 0.08);
 
   transition: 0.3s;
+  overflow: hidden; /* 🔥 important */
 }
 
 .feature-card:hover {
@@ -62,6 +64,29 @@
   box-shadow:
     0 20px 40px rgba(0, 0, 0, 0.08),
     0 5px 15px rgba(14, 220, 161, 0.15);
+}
+
+/* 🔥 TOP LINE */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+
+  background: linear-gradient(90deg, #0edca1, #5b9bf8);
+  transition: 0.4s ease;
+}
+
+/* 🔥 HOVER EFFECT */
+.feature-card:hover::before {
+  width: 100%;
+}
+
+/* OPTIONAL EXTRA SMOOTH */
+.feature-card:hover {
+  transform: translateY(-6px);
 }
 
 /* ICON */
