@@ -10,7 +10,7 @@ function Hero() {
                 <div className="hero-left">
 
                     <div className="hero-discount">
-                        ⚡ 🎉 10% Early Bird Discount — Valid till April 5, 2025
+                        ⚡ 🎉 10% Early Bird Discount — Valid till April 5, 2026
                     </div>
 
                     <h1 className="hero-title">
