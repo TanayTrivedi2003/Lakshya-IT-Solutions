@@ -1,0 +1,184 @@
+/* ===== NAVBAR ===== */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 1000;
+
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(12px);
+
+  border-bottom: 1px solid rgba(14, 220, 161, 0.1);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.04);
+
+  display: flex;
+  align-items: center;
+}
+
+/* ===== INNER ===== */
+
+.nav-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: auto;
+  padding: 0 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== LOGO ===== */
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+
+  font-weight: 800;
+  font-size: 1.1rem;
+  color: #0d1b2a;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.logo-text span {
+  color: #0edca1;
+}
+
+/* ===== LINKS ===== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  list-style: none;
+}
+
+.nav-links li a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #3a4d60;
+
+  padding: 8px 16px;
+  border-radius: 8px;
+
+  text-decoration: none;
+  display: block;
+
+  transition: all 0.2s ease;
+}
+
+.nav-links li a:hover {
+  background: #e8fdf6;
+  color: #09b885;
+}
+
+/* ===== RIGHT SIDE ===== */
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ===== BUTTON ===== */
+
+.nav-enroll {
+  background: linear-gradient(135deg, #0edca1, #0ac994);
+  color: #fff;
+
+  font-size: 0.88rem;
+  font-weight: 600;
+
+  padding: 9px 22px;
+  border-radius: 50px;
+
+  border: none;
+  cursor: pointer;
+
+  box-shadow: 0 3px 14px rgba(14, 220, 161, 0.35);
+  transition: all 0.25s ease;
+}
+
+.nav-enroll:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(14, 220, 161, 0.45);
+}
+
+/* ===== HAMBURGER ===== */
+
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #0d1b2a;
+  transition: 0.3s;
+}
+
+.hamburger:hover {
+  color: #0edca1;
+}
+
+/* ===== MOBILE MENU ===== */
+
+.mobile-menu {
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100%;
+
+  background: white;
+
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+
+  transform: translateY(-120%);
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.3s ease;
+}
+
+.mobile-menu.open {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  padding: 12px 0;
+  text-decoration: none;
+  color: #0d1b2a;
+  font-weight: 500;
+  border-bottom: 1px solid #eee;
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-enroll {
+    display: none;
+  }
+
+  .logo-text {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
