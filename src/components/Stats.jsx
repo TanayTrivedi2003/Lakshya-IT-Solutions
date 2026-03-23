@@ -3,11 +3,12 @@ import "./stats.css";
 
 function Counter({ target }) {
     const [count, setCount] = useState(0);
-    const ref = useRef();
+    const ref = useRef(null);
     const [start, setStart] = useState(false);
 
-    // 👇 detect when in view
     useEffect(() => {
+        if (!ref.current) return; // ✅ safety check
+
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -19,10 +20,11 @@ function Counter({ target }) {
 
         observer.observe(ref.current);
 
-        return () => observer.disconnect();
+        return () => {
+            if (ref.current) observer.unobserve(ref.current); // ✅ better cleanup
+        };
     }, []);
 
-    // 👇 animation
     useEffect(() => {
         if (!start) return;
 

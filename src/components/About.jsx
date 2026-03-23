@@ -1,5 +1,4 @@
 import "./about.css";
-// import aboutImg from "/about.png"; // apni image daal
 
 function About() {
     return (

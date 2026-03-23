@@ -1,103 +1,76 @@
-import "./hero.css";
-// import heroImg from "/heroimg.png"; // apni image yahan daal
+import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
+import "./navbar.css";
+// import logo from "/logo.png";
 
-function Hero() {
+function Navbar() {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const menuRef = useRef();
+
+    // ✅ OUTSIDE CLICK CLOSE
+    useEffect(() => {
+        function handleClickOutside(e) {
+            if (menuRef.current && !menuRef.current.contains(e.target)) {
+                setMenuOpen(false);
+            }
+        }
+
+        document.addEventListener("mousedown", handleClickOutside);
+
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
-        <section className="hero">
-            <div className="hero-inner">
+        <nav className="navbar">
+            <div className="nav-inner">
 
-                {/* LEFT */}
-                <div className="hero-left">
+                {/* LOGO */}
+                <Link to="/" className="nav-logo">
+                    <img src="/logo.png" alt="logo" className="logo-img" />
+                </Link>
 
-                    <div className="hero-discount">
-                        ⚡ 🎉 10% Early Bird Discount — Valid till April 5, 2025
-                    </div>
+                {/* DESKTOP LINKS */}
+                <ul className="nav-links">
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><Link to="/courses">Courses</Link></li>
+                    <li><Link to="/contact">Contact</Link></li>
+                </ul>
 
-                    <h1 className="hero-title">
-                        Build a <br />
-                        <span>Successful</span><br />
-                        Career in IT
-                    </h1>
+                {/* RIGHT SIDE */}
+                <div className="nav-right">
 
-                    <p className="hero-sub">
-                        <span className="highlight">8+ years of excellence</span> in IT education. Join Kanpur's most trusted training institute and master in-demand tech skills with hands-on learning.
-                    </p>
+                    {/* CTA */}
+                    <Link to="/courses">
+                        <button className="nav-enroll">Enroll Now →</button>
+                    </Link>
 
-                    <div className="hero-btns">
-                        <button className="btn-primary">🚀 Enroll Now</button>
-                        <button className="btn-outline">Explore Courses →</button>
-                    </div>
-
-                    {/* STATS */}
-                    <div className="hero-stats">
-
-                        <div className="stat-item">
-                            <div className="stat-icon">🎓</div>
-                            <div>
-                                <h4>1000+ Students</h4>
-                                <p>Successfully trained</p>
-                            </div>
-                        </div>
-
-                        <div className="stat-item">
-                            <div className="stat-icon">📅</div>
-                            <div>
-                                <h4>8+ Years</h4>
-                                <p>Industry experience</p>
-                            </div>
-                        </div>
-
-                        <div className="stat-item">
-                            <div className="stat-icon">📚</div>
-                            <div>
-                                <h4>26 Courses</h4>
-                                <p>Across all domains</p>
-                            </div>
-                        </div>
-
+                    {/* HAMBURGER */}
+                    <div
+                        className="hamburger"
+                        onClick={() => setMenuOpen(!menuOpen)}
+                    >
+                        {menuOpen ? <FaTimes /> : <FaBars />}
                     </div>
 
                 </div>
-
-                {/* RIGHT */}
-                <div className="hero-right">
-
-                    <div className="hero-card">
-
-                        <div className="badge top">🟢 Live Classes Available</div>
-
-                        {/* IMAGE BOX */}
-                        <div className="image-box">
-                            <div className="image-gradient"></div>
-
-                            <img src="/heroimg.png" alt="course" />
-
-                            {/* PROGRESS BARS */}
-                            <div className="progress-bars">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </div>
-
-                        {/* COURSE INFO */}
-                        <div className="course-info">
-                            <div>
-                                <h4>Full Stack Development Course</h4>
-                                <p>Most Popular • 6 Months</p>
-                            </div>
-                            <span className="price">₹4,999</span>
-                        </div>
-
-                        <div className="badge bottom">📘 Certificate Provided</div>
-
-                    </div>
-
-                </div>
-
             </div>
-        </section>
+
+            {/* MOBILE MENU */}
+            <div
+                ref={menuRef}
+                className={`mobile-menu ${menuOpen ? "open" : ""}`}
+            >
+                <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+                <Link to="/about" onClick={() => setMenuOpen(false)}>About</Link>
+                <Link to="/courses" onClick={() => setMenuOpen(false)}>Courses</Link>
+                <Link to="/contact" onClick={() => setMenuOpen(false)}>Contact</Link>
+            </div>
+        </nav>
     );
 }
 
-export default Hero;
+export default Navbar;
