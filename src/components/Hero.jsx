@@ -1,4 +1,4 @@
-import "./hero.css";
+import "./Hero.css";
 import heroImg from "/heroimg.png"; // apni image yahan daal
 
 function Hero() {

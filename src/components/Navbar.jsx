@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import "./navbar.css";
+import "./Navbar.css";
 import logo from "/logo.png";
 
 function Navbar() {
