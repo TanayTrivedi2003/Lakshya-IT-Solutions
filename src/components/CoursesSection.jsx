@@ -1,76 +1,102 @@
 import "./courses.css";
 
-const courses = [
-    {
-        title: "Full Stack Development",
-        duration: "6 Months",
-        price: "₹4,999",
-        tag: "Most Popular"
-    },
-    {
-        title: "Frontend Development",
-        duration: "3 Months",
-        price: "₹2,999",
-        tag: "Trending"
-    },
-    {
-        title: "Backend Development",
-        duration: "4 Months",
-        price: "₹3,499",
-        tag: ""
-    },
-    {
-        title: "UI/UX Design",
-        duration: "2 Months",
-        price: "₹2,499",
-        tag: ""
-    },
-    {
-        title: "Digital Marketing",
-        duration: "3 Months",
-        price: "₹2,999",
-        tag: ""
-    },
-    {
-        title: "Python Programming",
-        duration: "4 Months",
-        price: "₹3,999",
-        tag: ""
-    }
-];
-
 function CoursesSection() {
+    const courses = [
+        {
+            title: "Full Stack Web Development",
+            desc: "Master HTML, CSS, JavaScript, React, Node.js and MongoDB.",
+            duration: "6 Months",
+            level: "Beginner",
+            price: "₹4,999",
+            oldPrice: "₹5,555",
+            image: "/full-stack-development.png"
+        },
+        {
+            title: "Cloud Computing (AWS)",
+            desc: "Gain expertise in EC2, S3, Lambda and AWS certifications.",
+            duration: "4 Months",
+            level: "Intermediate",
+            price: "₹5,399",
+            oldPrice: "₹5,999",
+            image: "/aws.png"
+        },
+        {
+            title: "Python & Data Science",
+            desc: "Learn Python, Pandas, NumPy & Machine Learning.",
+            duration: "5 Months",
+            level: "Beginner",
+            price: "₹4,499",
+            oldPrice: "₹4,999",
+            image: "/python.png"
+        },
+        {
+            title: "Ethical Hacking & Cybersecurity",
+            desc: "Network security, CEH prep & real-world analysis.",
+            duration: "6 Months",
+            level: "Advanced",
+            price: "₹6,999",
+            oldPrice: "₹7,999",
+            image: "/hacking.png"
+        },
+        {
+            title: "Android App Development",
+            desc: "Build Android apps using Java/Kotlin & Firebase.",
+            duration: "5 Months",
+            level: "Intermediate",
+            price: "₹5,999",
+            oldPrice: "₹6,999",
+            image: "/android.png"
+        }
+    ];
+
     return (
         <section className="courses">
             <div className="courses-inner">
 
-                {/* HEADING */}
-                <div className="courses-header">
-                    <h2>Our <span>Courses</span></h2>
-                    <p>Explore our industry-oriented courses designed for real-world success</p>
-                </div>
+                <h2 className="courses-title">
+                    Our <span>Popular Courses</span>
+                </h2>
 
-                {/* GRID */}
                 <div className="courses-grid">
-                    {courses.map((course, index) => (
-                        <div className="course-card" key={index}>
 
-                            {course.tag && (
-                                <div className="course-tag">{course.tag}</div>
-                            )}
+                    {courses.map((course, i) => (
+                        <div className="course-card" key={i}>
 
-                            <div className="course-icon">💻</div>
+                            <div className="card-image">
+                                <img src={course.image} alt={course.title} />
+                                <span className="badge">10% OFF</span>
+                            </div>
 
-                            <h3>{course.title}</h3>
-                            <p>{course.duration}</p>
+                            <div className="card-body">
+                                <h3>{course.title}</h3>
+                                <p>{course.desc}</p>
 
-                            <div className="course-bottom">
-                                <span className="price">{course.price}</span>
-                                <button>View Details →</button>
+                                <div className="meta">
+                                    <span>⏱ {course.duration}</span>
+                                    <span>📊 {course.level}</span>
+                                    <span>✔ Certified</span>
+                                </div>
+                            </div>
+
+                            <div className="card-bottom">
+                                <div>
+                                    <h4>{course.price}</h4>
+                                    <span>{course.oldPrice}</span>
+                                </div>
+
+                                <button>Enroll →</button>
                             </div>
 
                         </div>
                     ))}
+
+                    {/* EXTRA CARD */}
+                    <div className="course-card more">
+                        <div className="plus">+</div>
+                        <h3>20+ More Courses</h3>
+                        <p>DTP, Tally, Java, React & many more</p>
+                    </div>
+
                 </div>
 
             </div>
